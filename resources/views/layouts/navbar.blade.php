@@ -247,17 +247,13 @@
 
   </header><!-- End Header -->
   <script>
-     setTimeout(()=>{
-                window.Echo.channel('testChannel')
-                .listen('testingEvent',(e)=>{
-                    console.log(e)
-                })
-            },200);
+
 
     document.addEventListener("DOMContentLoaded", function(event) {
        const userId = {{ auth()->id() }};
        // console.log( window.Echo)
        // import Echo from 'laravel-echo';
+       console.log( userId)
 
 
              window.Echo.private(`user.${userId}`)
@@ -265,6 +261,14 @@
                    console.log(e.count);
                    $('#notificationIcon').html(e.count)
                });
+
+
+               setTimeout(()=>{
+                window.Echo.channel('testChannel')
+                .listen('testingEvent',(e)=>{
+                    console.log(e)
+                })
+            },200);
     })
 
 
