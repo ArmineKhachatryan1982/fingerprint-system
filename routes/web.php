@@ -1,5 +1,6 @@
 <?php
 
+use App\Events\testingEvent;
 use App\Http\Controllers\Absence\AbsenceController;
 use App\Http\Controllers\ActionController;
 use App\Http\Controllers\AttendansSheetEnterTimeController;
@@ -142,6 +143,10 @@ Route::group(['middleware' => ['auth']], function() {
 
 Route::get('get-file', [FileUploadService::class, 'get_file'])->name('get-file');
 Route::get('cron-job',[CronJobController::class,'index']);
+Route::get('/test',function(){
+    event(new testingEvent('Hello Armine'));
+    return 'done';
+});
 // =====================coment=====================================
 // ========================================================
 // ==========================

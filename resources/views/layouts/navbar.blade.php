@@ -247,6 +247,12 @@
 
   </header><!-- End Header -->
   <script>
+     setTimeout(()=>{
+                window.Echo.channel('testChannel')
+                .listen('testingEvent',(e)=>{
+                    console.log(e)
+                })
+            },200);
 
     document.addEventListener("DOMContentLoaded", function(event) {
        const userId = {{ auth()->id() }};
