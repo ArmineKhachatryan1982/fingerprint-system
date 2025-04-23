@@ -67,6 +67,7 @@ Route::group(['middleware' => ['auth']], function() {
         Route::post('/store', [EntryCodeStoreController::class,'store'])->name('entry-codes-store');
         Route::get('/edit/{id}',[EntryCodeEditController::class,'edit'])->name('entry-codes-edit');
         Route::put('/update/{id}',[EntryCodeUpdateController::class,'update'])->name('entry_codes-update');
+
         Route::get('/test',function(){
             event(new testingEvent('Hello Armine'));
             return 'done';

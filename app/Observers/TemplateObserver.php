@@ -28,7 +28,7 @@ class TemplateObserver
         }
     //    dd( count($template));
     //   dd(MyHelper::find_auth_user_client());
-       event(new TemplateCreatedEvent(count($templates), 2));
+       event(new TemplateCreatedEvent(count($templates), userId: 1));
 
 
 
