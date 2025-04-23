@@ -17,6 +17,7 @@ window.Echo = new Echo({
         headers: {
             Authorization: 'Bearer ' + localStorage.getItem('access_token'), // or however you store your token
         },
+    }
 });
 
 
