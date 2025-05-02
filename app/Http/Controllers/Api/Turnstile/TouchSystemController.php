@@ -56,8 +56,9 @@ class TouchSystemController extends BaseController
 
     }
     public function touchJson(Request $request){
-        
-        return  $this->sendResponse(null, $request->all());
+        // dd($request->all());
+
+        return count($request->all())>0 ?  $this->sendResponse(null, $request->all()): $this->sendError($request->all());
     }
     public function match( $request){
 
