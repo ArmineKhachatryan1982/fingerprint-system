@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\Turnstile;
 
 use App\Events\TemplateCreatedEvent;
+use App\Http\Controllers\Api\BaseController;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\TouchSystemRequest;
 use App\Models\Person;
@@ -11,10 +12,13 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class TouchSystemController extends Controller
+class TouchSystemController extends BaseController
 {
     public function  index(TouchSystemRequest  $request){
-        
+        dd($request->all());
+
+
+
 
             $person= Person::where('template', 0)
             ->with('person_permission')
@@ -40,6 +44,8 @@ class TouchSystemController extends Controller
                 ];
                 // dd($data);
                 $templates = Template::create($data);
+                // return
+                // $templates != null ? $this->sendResponse(null, $ees->message, $additionals) : $this->sendError($ees->message, $additionals);
 
             }else{
                 // dd($request->all());
@@ -48,6 +54,10 @@ class TouchSystemController extends Controller
 
             }
 
+    }
+    public function touchJson(Request $request){
+        
+        return  $this->sendResponse(null, $request->all());
     }
     public function match( $request){
 

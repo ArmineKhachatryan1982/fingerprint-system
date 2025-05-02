@@ -20,5 +20,6 @@ Route::group(['prefix' => 'turnstile'], function ($router) {
     // Route::post('active-qrs', ActiveQrsController::class);
     // Route::post('qr-black-list', QrBlackListController::class);
     Route::post('touch',[TouchSystemController::class,'index']);
+    Route::post('touchJson',[TouchSystemController::class,'touchJson']);
 
 });
