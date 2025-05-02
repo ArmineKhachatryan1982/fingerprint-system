@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Auth;
 
 class TouchSystemController extends BaseController
 {
-    public function  index(TouchSystemRequest  $request){
+    public function  index(Request  $request){
         dd($request->all());
 
 
